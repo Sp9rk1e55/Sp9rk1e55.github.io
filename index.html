@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-12-02 21:12:12 / 修改时间：21:13:31" itemprop="dateCreated datePublished" datetime="2021-12-02T21:12:12+08:00">2021-12-02</time>
+              <time title="创建时间：2021-12-02 21:12:12 / 修改时间：21:32:12" itemprop="dateCreated datePublished" datetime="2021-12-02T21:12:12+08:00">2021-12-02</time>
             </span>
 
           
@@ -201,81 +201,14 @@
           <h1 id="Educational-Codeforces-Round-118-Rated-for-Div-2"><a href="#Educational-Codeforces-Round-118-Rated-for-Div-2" class="headerlink" title="Educational Codeforces Round 118 (Rated for Div. 2)"></a>Educational Codeforces Round 118 (Rated for Div. 2)</h1><p>&ensp;&ensp;晚上跟舍友聊天聊上头了…直接忘打了，补一补题，今天刚搭好的博客正好可以用上了</p>
 <h2 id="A-long-comparsion"><a href="#A-long-comparsion" class="headerlink" title="A:long comparsion"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1613/problem/A">A:long comparsion</a></h2><p>&ensp;&ensp;Monocarp wrote down two numbers on a whiteboard. Both numbers follow a specific format: a positive integer x with p zeros appended to its end.</p>
 <p>Now Monocarp asks you to compare these two numbers. Can you help him?  </p>
-<p>Input<br>The first line contains a single integer t (1 $\leq$ t $\leq$ $10^4$) — the number of testcases.  </p>
-<p>The first line of each testcase contains two integers x1 and p1 (1 $\leq$ x1 $\leq$ $10^6$;1 $\leq$ p1 $\leq$ $10^6$) — the description of the first number.  </p>
-<p>The second line of each testcase contains two integers x2 and p2 (1 $\leq$ x2 $\leq$ $10^6$;1 $\leq$ p2 $\leq$ $10^6$) — the description of the second.  </p>
-<p>input:  </p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">5  </span><br><span class="line">2<span class="number"> 1 </span> </span><br><span class="line">19<span class="number"> 0 </span> </span><br><span class="line">10<span class="number"> 2 </span> </span><br><span class="line">100<span class="number"> 1 </span> </span><br><span class="line">1999<span class="number"> 0 </span> </span><br><span class="line">2<span class="number"> 3 </span> </span><br><span class="line">1<span class="number"> 0 </span> </span><br><span class="line">1<span class="number"> 0 </span> </span><br><span class="line">99<span class="number"> 0 </span> </span><br><span class="line">1<span class="number"> 2 </span> </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">output:  </span><br></pre></td></tr></table></figure>
-<blockquote>
-</blockquote>
-<p>=<br>&lt;<br>=<br>&lt;</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一个基础题，判断一下数字的实际位数，如果<span class="keyword">x</span><span class="number">1</span>位数小于<span class="keyword">x</span><span class="number">2</span>，则<span class="keyword">x</span><span class="number">1</span>一定小于<span class="keyword">x</span><span class="number">2</span>，反之亦然； </span><br><span class="line">而如果两个数位数相等，则可以将两数的p值变化成相等的之后再判断两数大小，代码如下:   </span><br></pre></td></tr></table></figure>
-<p>#include<iostream><br>#include<algorithm><br>#define mod 1e9+7<br>#define ll long long<br>using namespace std;<br>const int N=1e6+10;<br>ll a[N];<br>void solve()<br>{<br>    ll x1,p1,x2,p2;<br>    cin&gt;&gt;x1&gt;&gt;p1&gt;&gt;x2&gt;&gt;p2;<br>    ll c1=0,c2=0,d1=x1,d2=x2;<br>    while(d1)c1++,d1/=10;<br>    while(d2)c2++,d2/=10;<br>    if(c1+p1!=c2+p2){<br>        cout&lt;&lt;(c1+p1&lt;c2+p2?”&lt;”:”&gt;”)&lt;&lt;endl;<br>    }<br>    else{<br>    while(p1!=p2)<br>        if(p1&lt;p2) x2*=10,–p2;<br>        else x1*=10,–p1;<br>    if(x1&lt;x2) cout&lt;&lt;”&lt;”&lt;&lt;endl;<br>    else if(x1&gt;x2) cout&lt;&lt;”&gt;”&lt;&lt;endl;<br>    else cout&lt;&lt;”=”&lt;&lt;endl;<br>    }<br>}<br>int main()<br>{<br>    int t;<br>    cin&gt;&gt;t;<br>    while(t–)<br>    {<br>        solve();<br>    }<br>}</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">## [B - Absent Remainder](https://codeforces.com/contest/1613/problem/B)  </span><br><span class="line">B. Absent Remainder</span><br><span class="line">time limit per test2 seconds</span><br><span class="line">memory limit per test256 megabytes</span><br><span class="line">inputstandard <span class="meta">input</span></span><br><span class="line">outputstandard <span class="meta">output</span></span><br><span class="line">You are given a sequence a1,a2,…,an consisting of n pairwise <span class="meta">distinct</span> positive integers.</span><br><span class="line"></span><br><span class="line">Find ⌊$\frac&#123;n&#125;&#123;2&#125;$⌋ different pairs of integers <span class="meta">x</span> <span class="meta">and</span> y such that:</span><br><span class="line"></span><br><span class="line"><span class="meta">x</span>$\<span class="meta">not</span> =$y;  </span><br><span class="line"><span class="meta">x</span> <span class="comment">**and** y appear in a;</span>  </span><br><span class="line"><span class="meta">x</span> <span class="comment">**mod** y doesn&#x27;t appear in a.  </span></span><br><span class="line"><span class="comment">Note that some x or y can belong to multiple pairs.  </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">⌊x⌋ denotes the floor function — the largest integer less than or equal to x. x mod y denotes the remainder from dividing x by y.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">If there are multiple solutions, print any of them. It can be shown that at least one solution always exists.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Input</span></span><br><span class="line"><span class="comment">The first line contains a single integer t (1 $\leq$ t $\leq$ $10^4$) — the number of testcases.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">The first line of each testcase contains a single integer n (2 $\leq$ n $\leq$ $2⋅10^5$) — the length of the sequence.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">The second line of each testcase contains n integers a&lt;sub&gt;1&lt;/sub&gt;,a&lt;sub&gt;2&lt;/sub&gt;,…,a&lt;sub&gt;n&lt;/sub&gt; (1 $\leq$ a&lt;sub&gt;i&lt;/sub&gt; $\leq$ $10^6$).</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">All numbers in the sequence are pairwise distinct. The sum of n over all testcases doesn&#x27;t exceed $2⋅10^5$.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Output</span></span><br><span class="line"><span class="comment">The answer for each testcase should contain ⌊$\frac&#123;n&#125;&#123;2&#125;$⌋ different pairs of integers x and y such that x$\not =$y, x and y appear in a and x *mod* y doesn&#x27;t appear in a. Print the pairs one after another.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">You can print the pairs in any order. However, the order of numbers in the pair should be exactly such that the first number is x and the second number is y. All pairs should be pairwise distinct.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">If there are multiple solutions, **print any of them**.  </span></span><br><span class="line"><span class="comment">$ensp;</span>$ensp;同样也是水题,对数组排个序，然后一直输出a[2]和a[1]开始一直到a[n/2+1]和a[1]即可.  </span><br><span class="line">代码如下:</span><br></pre></td></tr></table></figure>
-<p>#include<iostream><br>#include<algorithm><br>#define mod 1e9+7<br>#define ll long long<br>using namespace std;<br>const int N=1e6+10;<br>ll a[N];<br>void solve()<br>{<br>    int n;<br>    cin&gt;&gt;n;<br>    for(int i=1;i&lt;=n;i++)<br>    cin&gt;&gt;a[i];<br>    sort(a+1,a+n+1);<br>    for(int i=2;i&lt;=n/2+1;i++)<br>    cout&lt;&lt;a[i]&lt;&lt;” “&lt;&lt;a[1]&lt;&lt;endl;<br>}<br>int main()<br>{<br>    int t;<br>    cin&gt;&gt;t;<br>    while(t–)<br>    {<br>        solve();<br>    }<br>}</p>
-<pre><code>C今晚还没做...等明天白天有时间再做吧（明天一定）
-
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/28/Hello-hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/portrait.jpg">
-      <meta itemprop="name" content="Spark liu">
-      <meta itemprop="description" content="地平线嘉年华还在等我！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sp9rk's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/28/Hello-hexo/" class="post-title-link" itemprop="url">Hello hexo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-28 20:16:12 / 修改时间：20:20:58" itemprop="dateCreated datePublished" datetime="2021-11-28T20:16:12+08:00">2021-11-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>#博客的第一篇文章：<br>#你好hexo</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/02/Educational%20Codeforces%20Round%20118%20(Rate/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -428,7 +361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
